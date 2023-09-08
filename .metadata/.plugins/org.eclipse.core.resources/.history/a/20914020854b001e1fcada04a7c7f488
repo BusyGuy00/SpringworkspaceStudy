@@ -1,0 +1,37 @@
+package com.packt.cardatebase.web;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/tour")
+public class TourController  {
+	@GetMapping("/wea")
+	public String wather() throws UnsupportedEncodingException  {
+		//데이터 요청 주소 작성
+		String apiUrl = "https://apis.data.go.kr/1360000/TourStnInfoService1/getTourStnVilageFcst1";
+		//인증키 
+		String serviceKey = "ZruUg0gGNbtkTeaDAMGBQdTbvvcIppVjNE5q4Mkqa6BA889cOdVdF9EyoH2ZsCQQL8Fo3pqMbTJnV2LkPCiI9A%3D%3D";
+		//페이지 번호
+		String pageNo = "1";
+		//데이터 타입 
+		String dataType = "JSON";
+		//조회하고 싶은 날짜 
+		String CurrentDate = "20230823";
+		//조회하고 싶은 날짜의 시간 
+		String Hour = "24";
+		//관관코스 아이디 
+		String CourseId = "2";
+		//https://apis.data.go.kr/1360000/TourStnInfoService1/getTourStnVilageFcst1?serviceKey=ZruUg0gGNbtkTeaDAMGBQdTbvvcIppVjNE5q4Mkqa6BA889cOdVdF9EyoH2ZsCQQL8Fo3pqMbTJnV2LkPCiI9A%3D%3D&pageNo=1&numOfRows=10&dataType=json&CURRENT_DATE=2019122010&HOUR=24&COURSE_ID=1
+		//이 주소를 다 받아 와야 한다
+		StringBuilder urlBuilder = new StringBuilder();
+		//? 부분은 쿼리 스트링 시작 부분 이다.
+		urlBuilder.append("?"+URLEncoder.encode("ServiceKey","UTF-8")+ "="+ serviceKey);
+		urlBuilder.append("?"+URLEncoder.encode("pageNo","UTF-8")+ "="+ pageNo);
+		urlBuilder.append("?"+URLEncoder.encode("dataType","UTF-8")+ "="+ dataType);
+	}
+}

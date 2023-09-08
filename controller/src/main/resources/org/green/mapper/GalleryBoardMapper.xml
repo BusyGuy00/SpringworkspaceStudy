@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "=//mybatis.org// DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.green.mapper.GalleryBoardMapper">
+	
+	<select id="getList" resultType="org.green.domain.GalleryBoardVO">
+		select * from tbl_gallery
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_gallery(gno,title,writer,filename,uploadpath,fullname,category,content)
+		VALUES(gal_seq.nextval,#{title},#{writer},#{fileName},#{uploadPath},#{fullName},#{category},#{content})
+	</insert>
+	<!-- 리턴 타입이 있다면 resultType에 리턴 타입을 넣어 주면 된다.-->
+	<select id="read" resultType="org.green.domain.GalleryBoardVO">
+		Select * from tbl_gallery where gno = #{gno}
+	</select>
+	<delete id="delete">
+		Delete from tbl_gallery where gno = #{gno}
+	</delete>
+	<update id="update">
+		update tbl_gallery set 
+		title = #{title}, 
+		writer = #{writer}, 
+		filename = #{fileName},
+		uploadpath = #{uploadPath}, 
+		category = #{category}, 
+		fullname = #{fullName},
+		content = #{content}  
+		where gno = #{gno}
+	</update>
+	
+	</mapper>

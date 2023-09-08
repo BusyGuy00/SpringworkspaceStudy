@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="ex_list"/>
+<aop-project name="controller"/>
+<aop-project name="ex00"/>
+<aop-project name="ex01"/>
+<aop-project name="ex02"/>
+<aop-project name="ex03"/>
+<aop-project name="ex04"/>
+<aop-project name="ex05_security">
+<aspect-definition advice-class-name="org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor" advice-method-name="invoke" advice-method-parameter-types="org.aopalliance.intercept.MethodInvocation" advice-type="AROUND" aspect-end-line-number="28" aspect-name="_methodSecurityInterceptor" aspect-start-line-number="27" factory-id="org.springframework.ide.eclipse.aop.core.javaAdvisorDefinitionElementFactory" file="/ex05_security/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" pointcut-expression="(@within(org.springframework.security.access.annotation.Secured) || @annotation(org.springframework.security.access.annotation.Secured)) &amp;&amp; execution(* *..*(..))" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:ex05_security|3:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml|7:beans:beans:10|8:sampleController:10" bean-file="/ex05_security/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/ex05_security/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" source="=ex05_security/C:\/Users\/GreenArt\/.m2\/repository\/org\/springframework\/security\/spring-security-core\/5.0.6.RELEASE\/spring-security-core-5.0.6.RELEASE.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.dependency=/\/WEB-INF\/lib=/=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/spring-security-core-5.0.6.RELEASE.jar=/=/maven.groupId=/org.springframework.security=/=/maven.artifactId=/spring-security-core=/=/maven.version=/5.0.6.RELEASE=/=/maven.scope=/compile=/&lt;org.springframework.security.access.intercept.aopalliance(MethodSecurityInterceptor.class[MethodSecurityInterceptor~invoke~Lorg.aopalliance.intercept.MethodInvocation;" source-start-line="-1" target="=ex05_security/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.green.contoller{SampleController.java[SampleController~doAdmin2" target-start-line="34"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="cardatebase"/>
+<aop-project name="a_manager"/>
+</aop-reference-model>

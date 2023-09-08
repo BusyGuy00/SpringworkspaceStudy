@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "=//mybatis.org// DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+		<!-- xml에TimeMapper의 정학한 주소를 입력 해줘야 한다.  
+			TimeMapper안에 String 사용해서 resultType="string"로 설정해준다.-->
+<mapper namespace="org.zerock.mapper.TimeMapper">
+	<select id="getTime2" resultType="string">
+		SELECT sysdate from dual
+	</select>
+</mapper>

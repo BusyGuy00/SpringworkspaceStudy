@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "=//mybatis.org// DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.green.mapper.MemberMapper2">
+	<insert id="insert">
+		insert into member(userid, passwd, birthyear)
+		values(#{userid},#{passwd}, #{birthyear})
+	</insert>
+	<select id="getList" resultType="org.green.domain.MemberDTO2">
+		select * from member
+	</select>
+
+</mapper>

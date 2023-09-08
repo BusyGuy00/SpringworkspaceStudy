@@ -1,0 +1,17 @@
+package com.packt.cardatebase.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/tour")
+public class TourController {
+	@GetMapping("/wea")
+	public String wather() {
+		//데이터 요청 주소 작성
+		String apiUrl = "https://apis.data.go.kr/1360000/TourStnInfoService1/getTourStnVilageFcst1";
+		//인증키 
+		String serviceKey = "ZruUg0gGNbtkTeaDAMGBQdTbvvcIppVjNE5q4Mkqa6BA889cOdVdF9EyoH2ZsCQQL8Fo3pqMbTJnV2LkPCiI9A%3D%3D";
+	}
+}

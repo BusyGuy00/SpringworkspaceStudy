@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "=//mybatis.org// DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.green.mapper.BoardMapper">
+	
+	<sql id="criteria">
+	<trim prefix="where (" suffix=")" prefixOverrides="OR"> 
+   		 	<if test="typeArr != null">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+			</if>
+			</trim>
+	</sql> 
+	<insert id="insert">
+		insert into tbl_board(bno,title,content,writer)
+		VALUES(seq_board.nextval,#{title},#{content},#{writer})
+	</insert>
+	<insert id="insertSelectKey">
+		insert into tbl_board(bno, title, content, writer)
+		VALUES(seq_board.nextval,#{title},#{content},#{writer})
+		<!-- 열 하나만 받을때 사용 하면 된다. -->
+		<selectKey keyProperty="bno" order="AFTER" resultType="long">
+			select seq_board.currval from dual
+		</selectKey>
+	</insert>
+	<!-- 리턴 타입이 있다면 resultType에 리턴 타입을 넣어 주면 된다.-->
+	<select id="read" resultType="org.green.domain.BoardVO">
+		Select * from tbl_board where bno = #{bno}
+	</select>
+	<delete id="delete">
+		Delete from tbl_board where bno = #{bno}
+	</delete>
+	<update id="update">
+		update tbl_board set 
+		title = #{title}, content = #{content}, writer = #{writer} 
+		where bno = #{bno}
+	</update>
+	<!-- 1페이지는 1~10 2페이지는 11~20 3페이지는 21~30 -->
+	<select id="getListWithPaging" resultType="org.green.domain.BoardVO">
+		select * from
+		( select Tb.*, rownum rNum from
+   		 	( select * from tbl_board			<!-- foreach문에 separator="OR"로 대체 가능 하다  -->
+   		 	<trim prefix="where (" suffix=")" prefixOverrides="OR"> 
+   		 	<if test="typeArr != null">
+			<foreach collection="typeArr" item="type" >
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+			</if>
+			</trim>
+   		 	order by bno desc) Tb
+   		 ) where rNum between (#{pageNum}-1)*#{amount}+1 and #{pageNum} * #{amount}
+	</select>
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_board
+		<trim prefix="where (" suffix=")" prefixOverrides="OR"> 
+   		 	<if test="typeArr != null">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+			</if>
+			</trim>
+		
+	</select>
+	
+	  <select id="searchTest" resultType="org.green.domain.BoardVO">
+		<!-- 너무 많아서 10개씩만 추출 해보자 -->
+		<!--  select * from tbl_board order by bno desc-->
+		<!-- 10개씩만 추출 하고 where절 추가   -->
+		<!--select * from ( select * from tbl_board order by bno desc )
+		where rownum <= 10  -->
+		<!--  select * from ( select * from tbl_board
+		 <where>
+		 	<if test="bno != null" >
+		 		bno = #{bno}
+		 	</if>
+		 </where>
+		order by bno desc ) where rownum <= 10 -->
+		select * from tbl_board
+			<!-- prefix는 앞에 쿼리 추가 suffix는 뒤에 추가 -->
+			<trim prefix="where"> <!-- where절 사용 방법  -->
+			<!-- separator="or"사이사이에 or이 추가 된다. -->
+			<foreach collection="map" index="key" item="val" separator="or">
+				<!--키 값 출력되는지 확인하기 #{key} #{val}-->
+				<if test="key == 'T'.toString()">
+					title like '%'||#{val}||'%'
+				</if>
+				<if test="key == 'C'.toString()">
+					content like '%'||#{val}||'%'
+				</if>
+				<if test="key == 'W'.toString()">
+					writer like '%'||#{val}||'%'
+				</if>
+			</foreach>
+			</trim>
+	</select> 
+</mapper>
+
+
+

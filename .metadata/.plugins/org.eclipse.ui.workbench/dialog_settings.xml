@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jst.jsp.ui.internal.wizard.NewJSPWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.ajdt.wizards"/>
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jst.ejb.ui"/>
+			<item value="org.eclipse.egit.ui.wizardCategory"/>
+			<item value="org.eclipse.buildship.ui.creationwizards"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+			<item value="org.eclipse.emf.codegen.ui.JETNewWizards"/>
+			<item value="org.eclipse.wst.jsdt.ui.java"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.wst.server.ui"/>
+			<item value="org.springframework.ide.eclipse.beans.ui.wizards.category"/>
+			<item value="org.springsource.ide.eclipse.boot.wizards.category"/>
+			<item value="org.eclipse.mylyn.ui.wizards.new"/>
+			<item value="org.eclipse.pde.userAssistance"/>
+			<item value="org.eclipse.wst.web.ui"/>
+			<item value="org.eclipse.jst.ws.ui.new"/>
+			<item value="org.eclipse.wst.XMLCategory"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.m2e"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\GreenArt\Desktop\0907manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0906manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0905manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0904manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0901manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0831manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0830manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0829manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0828manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0825manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0824manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\0823manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\manager.zip"/>
+			<item value="C:\Users\GreenArt\Desktop\controller.zip"/>
+		</list>
+	</section>
+</section>
